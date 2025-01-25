@@ -44,14 +44,15 @@ namespace Jobs.EF.Services
             ResponseDTO result;
 
             bool jobExists = _unitOfWork.Repository<Position>().IsExist(c => c.ID == positionApplicationsDTO.PositionID);
+            bool isAlreadyApplied = _unitOfWork.Repository<PositionApplication>().IsExist(c => c.ApplicantEmail == positionApplicationsDTO.ApplicantEmail);
 
-            if (jobExists)
+            if (jobExists && !isAlreadyApplied)
             {
                 result = await RegisterApplication(positionApplicationsDTO);
             }
             else
             {
-                result = await JobNotFount();
+                result = await FailResponse();
             }
 
             return result;
@@ -96,9 +97,9 @@ namespace Jobs.EF.Services
             return isSuccess;
         }
 
-        public async Task<ResponseDTO> JobNotFount()
+        public async Task<ResponseDTO> FailResponse()
         {
-            return new ResponseDTO(ResponseStatusCode.NotFound, false, new PositionDTO(), "there is no position with this ID");
+            return new ResponseDTO(ResponseStatusCode.NotFound, false, new PositionDTO(), "You already Applied for this job No Longer available");
         }
 
     }
