@@ -44,7 +44,7 @@ namespace Jobs.EF.Services
             ResponseDTO result;
 
             bool jobExists = _unitOfWork.Repository<Position>().IsExist(c => c.ID == positionApplicationsDTO.PositionID);
-            bool isAlreadyApplied = _unitOfWork.Repository<PositionApplication>().IsExist(c => c.ApplicantEmail == positionApplicationsDTO.ApplicantEmail);
+            bool isAlreadyApplied = _unitOfWork.Repository<PositionApplication>().IsExist(c => c.ApplicantEmail == positionApplicationsDTO.ApplicantEmail && c.PositionID == positionApplicationsDTO.PositionID);
 
             if (jobExists && !isAlreadyApplied)
             {
