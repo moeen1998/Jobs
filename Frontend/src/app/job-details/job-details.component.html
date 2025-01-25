@@ -1,0 +1,12 @@
+<h2 class="my-2 text-decoration-underline">Position details</h2>
+
+<div class="mt-4" *ngIf="job != null">
+    <p class="fs-3 my-0">title: <span class="fst-italic ms-2 text-info"> {{ job.title }} </span></p>
+    <p class="fs-4 my-0">salary: <span class="fst-italic ms-2 text-success"> {{ job.salary }} </span></p>
+    <p class="fs-5 my-1">requirement:<span class="fst-italic ms-2 fs-6">{{job.requirement}}</span></p>
+    <p class="fs-5 my-1">description: <span class="fst-italic ms-2 fs-6"> {{ job.description }} </span></p>
+    <p class="fs-5 my-1">company: <span class="fst-italic ms-2 fs-6"> {{ job.company }} </span></p>
+    <p class="fs-5 my-1">location: <span class="fst-italic ms-2 fs-6"> {{ job.location }} </span></p>
+    <button class="btn btn-outline-success px-5 me-2 mt-4 mb-2" type="button" (click)="Apply(job.id)">Apply</button>
+    <button class="btn btn-outline-primary px-5 mt-4 mb-2" type="button" (click)="ShowAll()">show all</button>
+</div>

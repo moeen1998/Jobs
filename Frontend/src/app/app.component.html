@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-lg bg-body-secondary ">
+    <div class="container-fluid">
+      <a class="navbar-brand fst-italic " role="button" routerLink="/">
+        <span class="text-primary fw-bold">J</span>
+        <span class="text-success fw-bold">F</span>
+    </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" role="button" routerLink="">All Jobs</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+</nav>
+
+<div class="p-1 bg-body-tertiary min-vh-100">
+    <div class="container">
+        <router-outlet />
+    </div>
+</div>
+
+<div class="bg-body-secondary  p-2 text-center">
+    <p class="m-0 p-0">footer works!</p>
+</div>
+
+
+

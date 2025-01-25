@@ -1,0 +1,27 @@
+<div class="alert alert-success mt-2" role="alert" *ngIf="isSuccess && isAllert">
+  {{ message }}
+</div>
+
+<div class="alert alert-danger" role="alert" *ngIf="!isSuccess && isAllert">
+  {{ message }}
+</div>
+
+<h2 class="my-2 text-decoration-underline">application form</h2>
+
+<form class="my-4" (ngSubmit)="submitApplication()" [noValidate]="false">
+  <div class="form-group mt-3">
+    <label for="applicantName">Your Name</label>
+    <input type="text" id="applicantName" class="form-control" [(ngModel)]="application.applicantName" name="applicantName" required>
+  </div>
+  <div class="form-group mt-3">
+    <label for="applicantEmail">Your Email</label>
+    <input type="email" id="applicantEmail" class="form-control" [(ngModel)]="application.applicantEmail" name="applicantEmail" required>
+  </div>
+  <div class="form-group mt-3">
+    <label for="cv">CV</label>
+    <input type="file" id="cv" name="cv" class="form-control" (change)="uploadFile($event)" required>
+  </div>
+  
+  <button type="submit" class="btn btn-primary mt-3">Apply</button>
+</form>
+  
